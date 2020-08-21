@@ -6,7 +6,7 @@ Description: Criação de um plugin para administração de um cinema
 Version: 1.0
 Author: Vinícius Pereira de Oliveira
 Author URI:
-Text Domain:
+Text Domain: movie_reviews
 License:
 */
 
