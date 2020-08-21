@@ -31,10 +31,30 @@ class Movie
         add_action('init', array($this,'registerPostType'));
     }
 
-    private function registerPostType()
+    function registerPostType()
     {
-        
+        register_post_type("Movie", array(
+            "labels" => array(
+                "name" => "Movie Review",
+                "singular_name" => "Movie"
+            ),
+            "description" => "Post to insert reviews",
+            "supports" => array(
+                "title",
+                "editor",
+                "comments",
+                "revisions",
+                "author",
+                "thumbnail",
+                "custom-fields"
+            ),
+            "public" => TRUE,
+            "menu_position" => 4
+        ));
     }
 }
 
 Movie::getInstance();
+
+register_deactivation_hook(__FILE__,"");
+register_activation_hook(__FILE__,"");
