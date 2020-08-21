@@ -27,7 +27,13 @@ class Movie
 
     private function __construct()
     {
+        //Ao iniciar ele já realiza essa ação
+        add_action('init', array($this,'registerPostType'));
+    }
 
+    private function registerPostType()
+    {
+        
     }
 }
 
