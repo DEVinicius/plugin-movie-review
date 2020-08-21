@@ -9,3 +9,26 @@ Author URI:
 Text Domain:
 License:
 */
+
+class Movie
+{
+    //class Singleton
+    private static $instance;
+
+    public static function getInstance()
+    {
+        if(self::$instance == NULL)
+        {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
+
+    private function __construct()
+    {
+
+    }
+}
+
+Movie::getInstance();
