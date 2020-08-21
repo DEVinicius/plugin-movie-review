@@ -28,10 +28,10 @@ class Movie
     private function __construct()
     {
         //Ao iniciar ele já realiza essa ação
-        add_action('init', array($this,'registerPostType'));
+        add_action('init', 'Movie::registerPostType');
     }
 
-    function registerPostType()
+    public static function registerPostType()
     {
         register_post_type("Movie", array(
             "labels" => array(
@@ -52,9 +52,15 @@ class Movie
             "menu_position" => 4
         ));
     }
+
+    public static function activate()
+    {
+        self::registerPostType();
+        flush_rewrite_rules();
+    }
 }
 
 Movie::getInstance();
 
-register_deactivation_hook(__FILE__,"");
-register_activation_hook(__FILE__,"");
+register_deactivation_hook(__FILE__,"flush_rewrite_rules");
+register_activation_hook(__FILE__,"Movie::activate");
