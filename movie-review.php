@@ -10,6 +10,7 @@ Text Domain: movie_reviews
 License:
 */
 
+require __FILE__.DIRECTORY_SEPARATOR."lib".DIRECTORY_SEPARATOR."class-tgm-plugin-activation.php";
 class Movie
 {
     //class Singleton
